@@ -1,0 +1,29 @@
+<div layout="column">
+
+<md-toolbar class="md-theme-indigo">
+  <h1 class="md-toolbar-tools">{{project.name}}</h1>
+</md-toolbar>
+
+
+<md-content layout-padding>
+
+
+  <div ng-if="spinner" layout="row" layout-sm="column" layout-align="space-around">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+  </div>
+
+  <hypothesis-row ng-show="!spinner" project-id="{{project._id}}"></hypothesis-row>
+
+</md-content>
+</div>
+
+<!-- <div class="project-detail container">
+  <h1>Here are the details of the project</h1>
+  <form name="form" ng-submit="save()" novalidate>
+    <input class="form-control" type="text" placeholder="name" ng-model="project.name" />
+    <span class="input-group-btn">
+      <input class="btn btn-primary" type="submit" value="Save" />
+      <input class="btn" type="button" ng-click="reset()" value="Reset" />
+    </span>
+  </form>
+</div> -->

@@ -1,0 +1,19 @@
+<div layout-column class="">
+  <md-toolbar class="md-theme-green">
+    <h1 class="md-toolbar-tools">Edit learning</h1>
+  </md-toolbar>
+
+  <form name="text-justify" layout-padding>
+
+    <md-input-container ng-repeat="(key, value) in vm.hypothesis.learn[vm.hypothesis.test_version]" class="flex md-default-theme md-input-has-value">
+            <label for="input_153">{{::key}}</label>
+            <input ng-model="vm.hypothesis.learn[vm.hypothesis.test_version][key]" ng-disabled="vm.shouldDisable(key)">
+    </md-input-container>
+
+  </form>
+
+  <div layout="row">
+    <md-button class="md-primary" ng-click="save()">Save</md-button>
+
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<md-list>
+  <md-list-item>
+    <p><a href="/projects">View All</a></p>
+  </md-list-item>
+  <md-list-item ng-repeat="item in vm.items" >
+    <p><a href="/projects/{{item._id}}">{{item.name}}</a></p>
+  </md-list-item>
+</md-list>

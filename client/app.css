@@ -1,0 +1,16 @@
+.test {
+  border:1px solid black;
+}
+md-grid-tile:focus {outline:none !important;}
+.md-sidenav-left {
+  z-index:58!important;
+}
+.md-sidenav-right {
+    min-width: 200px !important;
+    width: 85vw !important;
+    max-width: 600px !important;
+}
+
+.md-sidenav-right md-tab-item {
+  max-width:100%!important;
+}
