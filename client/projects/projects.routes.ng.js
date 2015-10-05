@@ -10,6 +10,12 @@ angular.module('baseappApp')
   })
   .state('projects.detail', {
     url: '/:projectId',
+    resolve:{
+      project:function($meteor, $stateParams){
+        $meteor.subscribe('projects');
+        return $meteor.object(Projects, $stateParams.projectId);
+      }
+    },
     views:{
       "@":{
         templateUrl: 'client/projects/project-detail.view.ng.html',
@@ -18,22 +24,22 @@ angular.module('baseappApp')
     }
   })
   .state('projects.detail.edithypothesis', {
-    url: '/edit/hypothesis/:itemId',
+    url: '/edit/hypothesis/:hypothesiId',
     views:{
       "sidenav-right@":{
         template: function(params){
-          return '<create-hypothesis-form item-id="'+params.itemId+'"></create-hypothesis-form>';
+          return '<create-hypothesis-form item-id="'+params.hypothesiId+'"></create-hypothesis-form>';
         },
         controller: 'ProjectEditCtrl'
       }
     }
   })
-  .state('projects.detail.edittest', {
-    url: '/edit/test/:itemId',
+  .state('projects.detail.edittestcard', {
+    url: '/edit/test/:testCardId',
     views:{
       "sidenav-right@":{
         template: function(params){
-          return '<create-test-form item-id="'+params.itemId+'"></create-test-form>';
+          return '<create-test-form item-id="'+params.testCardId+'"></create-test-form>';
         },
         controller: 'ProjectEditCtrl'
       }

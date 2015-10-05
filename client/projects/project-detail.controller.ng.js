@@ -1,18 +1,21 @@
 'use strict'
 
 angular.module('baseappApp')
-.controller('ProjectDetailCtrl', function($scope, $stateParams, $meteor, $timeout) {
-  $scope.project = $meteor.object(Projects, $stateParams.projectId);
+.controller('ProjectDetailCtrl', function($scope, $meteor, project, $stateParams, $timeout ) {
 
+  $scope.project = project;
   $meteor.subscribe('projects').then(function(){
-    $timeout(function(){
-      $scope.spinner = false;
-
-    }, 500);
   });
+  // $scope.project = $meteor.object(Projects, $stateParams.projectId);
+  // console.log($scope.project)
+  // $meteor.subscribe('projects').then(function(){
+  //   $timeout(function(){
+  //     $scope.spinner = false;
+  //
+  //   }, 500);
+  // });
 
-
-  $scope.spinner = true;
+  $scope.spinner = false;
 
   $scope.save = function() {
     if($scope.form.$valid) {

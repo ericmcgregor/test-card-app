@@ -75,12 +75,16 @@ angular.module('baseappApp')
             });
       }
 
-    scope.newHypothesis = function() {
-      console.log(scope.vm.projectId)
-      $meteor.call('createHypothesis', scope.vm.projectId, 'new hypothesis');
-    }
+      scope.newHypothesis = function() {
+        console.log(scope.vm.projectId)
+        $meteor.call('createHypothesis', scope.vm.projectId, 'new hypothesis');
+      }
 
-
+      scope.moveCard = function(item, index, location) {
+        item.test_card[index].state = location;
+        console.log(item);
+        ctrl.hypothesis.save(item);
+      }
 
 
 

@@ -29,11 +29,6 @@ angular.module('baseappApp')
     },
     link: function(scope, elem, attrs, ctrl) {
       scope.save = function(){
-        if(ctrl.hypothesis.test[ctrl.hypothesis.test_version].state == 'measure') {
-          ctrl.hypothesis.learn[ctrl.hypothesis.test_version].visible = true;
-        } else {
-          ctrl.hypothesis.learn[ctrl.hypothesis.test_version].visible = false;
-        }
         ctrl.hypothesis.save();
       }
 

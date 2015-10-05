@@ -7,7 +7,7 @@
     <section flex layout-align="center center">learn</section>
   </div>
 
-  <md-grid-list ng-repeat="item in vm.hypothesis" style="margin-bottom:15px; text-align:center;"
+  <md-grid-list ng-repeat="item in vm.hypothesis" style="margin-bottom:15px;"
           md-cols-sm="1" md-cols-md="1" md-cols-gt-md="5"
           md-row-height-gt-md="1:1" md-row-height="2:2"
           md-gutter="12px" md-gutter-gt-sm="8px" >
@@ -17,18 +17,35 @@
 
           </md-grid-tile>
 
+          <md-grid-tile md-rowspan="1" md-colspan="1" class="test">
+            <!-- <section flex><p ng-if="item.test_card[item.test_version].state=='backlog'" >{{item.test_card[item.test_version].name}}</p></section> -->
+            <md-content>
+            <md-list>
+              <md-list-item class="md-3-line" ng-repeat="card in item.test_card">
+                <md-content layout="row" >
+                  <div class="md-list-item-text" layout-padding layout="column" ng-click="$state.go('projects.detail.edittest', {itemId:item._id})" >
+                    <h3>{{ card.name }}</h3>
+                    <h4>card.assigned_to</h4>
+                    <p>card.test</p>
+                  </div>
+                  <div class="test">
+                    <md-button class="md-icon-button md-primary" aria-label="Settings" ng-click="moveCard(item, $index, 'build')">
+                      <md-icon md-svg-icon="navigation:ic_chevron_right_24px"></md-icon>
+                    </md-button>
+                  </div>
+                </md-content>
+              </md-list-item>
+            </md-list>
+            </md-content>
+          </md-grid-tile>
+
           <md-grid-tile ng-click="$state.go('projects.detail.edittest', {itemId:item._id})" md-ink-ripple="#333" class="gray test" md-rowspan="1" md-colspan="1">
-            <section flex><p ng-if="item.test[item.test_version].state=='backlog'" >{{item.test[item.test_version].name}}</p></section>
+            <section flex><p ng-if="item.test_card[item.test_version].state=='build'" >{{item.test_card[item.test_version].name}}</p></section>
 
           </md-grid-tile>
 
           <md-grid-tile ng-click="$state.go('projects.detail.edittest', {itemId:item._id})" md-ink-ripple="#333" class="gray test" md-rowspan="1" md-colspan="1">
-            <section flex><p ng-if="item.test[item.test_version].state=='build'" >{{item.test[item.test_version].name}}</p></section>
-
-          </md-grid-tile>
-
-          <md-grid-tile ng-click="$state.go('projects.detail.edittest', {itemId:item._id})" md-ink-ripple="#333" class="gray test" md-rowspan="1" md-colspan="1">
-            <section flex><p ng-if="item.test[item.test_version].state=='measure'" >{{item.test[item.test_version].name}}</p></section>
+            <section flex><p ng-if="item.test_card[item.test_version].state=='measure'" >{{item.test_card[item.test_version].name}}</p></section>
 
           </md-grid-tile>
 

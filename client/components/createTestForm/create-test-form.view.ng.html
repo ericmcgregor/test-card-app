@@ -16,9 +16,9 @@
                 <md-content class="md-padding">
 
                   <form name="text-justify" layout-padding>
-                    <md-input-container ng-repeat="(key, value) in vm.hypothesis.test[vm.hypothesis.test_version]" class="flex md-default-theme md-input-has-value">
+                    <md-input-container ng-repeat="(key, value) in vm.hypothesis.test_card[vm.hypothesis.test_version]" class="flex md-default-theme md-input-has-value">
                             <label for="input_153">{{::key}}</label>
-                            <input ng-model="vm.hypothesis.test[vm.hypothesis.test_version][key]" ng-disabled="vm.shouldDisable(key)">
+                            <input ng-model="vm.hypothesis.test_card[vm.hypothesis.test_version][key]" ng-disabled="vm.shouldDisable(key)">
                     </md-input-container>
                   </form>
 
