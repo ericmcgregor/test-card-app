@@ -2,18 +2,16 @@
 
 angular.module('baseappApp')
 .controller('ProjectEditCtrl', function($scope, $stateParams, $meteor, $mdSidenav, $mdComponentRegistry, $state) {
-  $scope.project = $meteor.object(Projects, $stateParams.projectId);
-  $meteor.subscribe('projects');
-
   $scope.isOpen = function() { return $mdSidenav('right').isOpen(); };
+
   $scope.$watch('isOpen()', function(value){
     if (value === false) {
-      $state.go('^');
+      $state.go('projects.detail', {projectId:$stateParams.projectId});
     }
   });
 
   $mdSidenav('right')
-   .toggle()
+   .open()
    .then(function(){
     //  console.log($scope);
    });

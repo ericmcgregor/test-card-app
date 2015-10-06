@@ -1,0 +1,32 @@
+<div layout="column" layout-fill>
+  <md-toolbar class="md-theme-green md-primary">
+    <h1 class="md-toolbar-tools">{{vm.testCard.name}}</h1>
+  </md-toolbar>
+
+  <md-menu-item>
+    <md-button ng-click="editTestCard(vm.testCard._id)">
+      <md-icon md-svg-icon="editor:ic_mode_edit_24px" md-menu-align-target></md-icon>
+      Edit
+    </md-button>
+  </md-menu-item>
+  <md-menu-item  ng-if="vm.next !== 'null'">
+    <md-button ng-click="next(card, $event)">
+      <md-icon md-svg-icon="navigation:ic_chevron_right_24px" md-menu-align-target></md-icon>
+      Move to {{vm.next}}
+    </md-button>
+  </md-menu-item>
+  <md-menu-item ng-if="vm.prev !== 'null'">
+    <md-button ng-click="prev(card, $event)">
+      <md-icon md-svg-icon="navigation:ic_chevron_left_24px" md-menu-align-target></md-icon>
+      Back to {{vm.prev}}
+    </md-button>
+  </md-menu-item>
+  <md-divider ></md-divider>
+  <md-menu-item>
+    <md-button ng-click="remove(vm.testCard, $event)">
+      <md-icon md-svg-icon="action:ic_delete_24px" md-menu-align-target></md-icon>
+      Delete
+    </md-button>
+  </md-menu-item>
+
+</div>

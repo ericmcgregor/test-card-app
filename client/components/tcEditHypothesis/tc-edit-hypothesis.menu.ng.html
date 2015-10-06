@@ -1,0 +1,29 @@
+<div layout="column" layout-fill>
+  <md-toolbar class="md-theme-green md-primary">
+    <h1 class="md-toolbar-tools">{{vm.hypothesi.name}}</h1>
+  </md-toolbar>
+  <md-toolbar ng-if="showFeedback" class="md-theme-green md-warn">
+    <h1 class="md-toolbar-tools">feedback</h1>
+  </md-toolbar>
+
+    <md-menu-item>
+      <md-button ng-click="edit()">
+        <md-icon md-svg-icon="editor:ic_mode_edit_24px" md-menu-align-target></md-icon>
+        Edit
+      </md-button>
+    </md-menu-item>
+    <md-menu-item>
+      <md-button ng-click="addTestCard(vm.hypothesi._id)">
+        <md-icon md-svg-icon="image:ic_add_to_photos_24px" md-menu-align-target></md-icon>
+        Add Test Card
+      </md-button>
+    </md-menu-item>
+    <md-divider ></md-divider>
+    <md-menu-item>
+      <md-button ng-click="remove(card, $event)">
+        <md-icon md-svg-icon="action:ic_delete_24px" md-menu-align-target></md-icon>
+        Delete
+      </md-button>
+    </md-menu-item>
+
+</div>

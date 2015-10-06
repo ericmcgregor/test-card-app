@@ -24,7 +24,7 @@ angular.module('baseappApp')
       }
 
       scope.editHypothesis = function(){
-        $state.go('projects.detail.edithypothesis', {hypothesiId:scope.vm.hypothesi._id})
+        $state.go('projects.detail.hypothesis', {hypothesiId:scope.vm.hypothesi._id})
       }
 
     }
