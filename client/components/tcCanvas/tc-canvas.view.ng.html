@@ -1,19 +1,5 @@
-<div flex>
-  <div layout="row centered" style="text-align:center;">
-    <section flex layout-align="center center">hypothesis</section>
-    <section flex layout-align="center center">backlog</section>
-    <section flex layout-align="center center">build</section>
-    <section flex layout-align="center center">measure</section>
-    <section flex layout-align="center center">learn</section>
-  </div>
-  <md-content layout-fill>
+<div>
   <!-- <div ng-repeat="item in vm.hypothesis">{{item.name}}</div> -->
   <tc-row ng-repeat="hypothesi in vm.hypothesis track by hypothesi._id" hypothesi="hypothesi"></tc-row>
 
-  <div layout="row">
-    <md-button ng-click="newHypothesis()">
-        new Hypothesis
-    </md-button>
-  </div>
-  </md-content>
 </div>

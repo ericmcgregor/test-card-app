@@ -1,50 +1,5 @@
 
-  <md-content layout-fill>
-    <md-list>
-      <md-list-item ng-repeat="card in vm.testCards track by card._id" class="md-3-line">
-
-            <!-- <div class="md-list-item-text" layout-padding layout="column" ng-click="$state.go('projects.detail.edittest', {itemId:item._id})" > -->
-          <div class="md-list-item-text" layout-padding layout="column">
-            <md-menu>
-            <div ng-click="editTestCard(card._id, card.state, vm.next, vm.prev)">
-              <h3>{{card.name}}</h3>
-              <h4>card.assigned_to</h4>
-              <p>card.test</p>
-            </div>
-
-            <md-menu-content width="4">
-              <md-menu-item>
-                <md-button ng-click="editTestCard(card._id, $event)">
-                  <md-icon md-svg-icon="editor:ic_mode_edit_24px" md-menu-align-target></md-icon>
-                  Edit
-                </md-button>
-              </md-menu-item>
-              <md-menu-item ng-if="vm.next">
-                <md-button ng-click="next(card, $event)">
-                  <md-icon md-svg-icon="navigation:ic_chevron_right_24px" md-menu-align-target></md-icon>
-                  Move to {{vm.next}}
-                </md-button>
-              </md-menu-item>
-              <md-menu-item ng-if="vm.prev">
-                <md-button ng-click="prev(card, $event)">
-                  <md-icon md-svg-icon="navigation:ic_chevron_left_24px" md-menu-align-target></md-icon>
-                  Back to {{vm.prev}}
-                </md-button>
-              </md-menu-item>
-              <md-divider ></md-divider>
-              <md-menu-item>
-                <md-button ng-click="remove(card, $event)">
-                  <md-icon md-svg-icon="action:ic_delete_24px" md-menu-align-target></md-icon>
-                  Delete
-                </md-button>
-              </md-menu-item>
-            </md-menu-content>
-            </md-menu>
-
+          <div ng-repeat="card in vm.testCards track by card._id">
+              <h3 ng-click="editTestCard(card._id, card.state, vm.next, vm.prev)">{{card.name}}</h3>
+              <p>{{card.state}}</p>
           </div>
-
-      </md-list-item>
-
-    </md-list>
-
-  </md-content>

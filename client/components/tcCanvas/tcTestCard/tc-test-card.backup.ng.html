@@ -1,0 +1,20 @@
+
+  <md-content layout-fill>
+    <md-list>
+      <md-list-item ng-repeat="card in vm.testCards track by card._id" class="md-3-line">
+
+            <!-- <div class="md-list-item-text" layout-padding layout="column" ng-click="$state.go('projects.detail.edittest', {itemId:item._id})" > -->
+          <div class="md-list-item-text" layout-padding layout="column">
+            <div ng-click="editTestCard(card._id, card.state, vm.next, vm.prev)">
+              <h3>{{card.name}}</h3>
+              <h4>card.assigned_to</h4>
+              <p>card.test</p>
+            </div>
+
+          </div>
+
+      </md-list-item>
+
+    </md-list>
+
+  </md-content>

@@ -10,7 +10,7 @@
   <div ng-if="spinner" layout="row" layout-sm="column" layout-align="space-around">
     <md-progress-circular md-mode="indeterminate"></md-progress-circular>
   </div>
-  <tc-canvas ng-show="!spinner" project-id="{{project._id}}"></tc-canvas>
+  <tc-canvas ng-show="!spinner" project-id="{{project._id}}" project="project"></tc-canvas>
   <!-- <hypothesis-row ng-show="!spinner" project-id="{{project._id}}"></hypothesis-row> -->
 
 </md-content>

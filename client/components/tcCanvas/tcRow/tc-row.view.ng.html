@@ -1,38 +1,16 @@
-  <div layout="column">
-    <!-- <section flex layout-align="center center">{{vm.hypothesi.name}}</section> -->
-      <!-- <div ng-repeat="item in vm.backlog">{{item.name}}</div> -->
-      <!-- <div>{{vm.hypothesi._id}}</div> -->
 
-      <md-grid-list
-            md-cols="5"
-            md-rows="1"
-            md-row-height="2:2"
-            md-gutter="1em"
-            class="test">
-
-        <md-grid-tile class="test" md-rowspan="1" md-colspan="1">
-          <md-content>
-            <h3 ng-click="editHypothesis()">{{vm.hypothesi.name}}</h3>
-          </md-content>
-
-        </md-grid-tile>
-
-      <md-grid-tile>
-        <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="backlog" next="build"></tc-test-card>
-      </md-grid-tile>
-
-      <md-grid-tile>
-        <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="build" prev="backlog" next="measure"></tc-test-card>
-      </md-grid-tile>
-
-      <md-grid-tile>
-        <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="measure" next="learn" prev="build"></tc-test-card>
-      </md-grid-tile>
-
-      <md-grid-tile>
-        <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="learn" prev="measure"></tc-test-card>
-      </md-grid-tile>
-
-      </md-grid-list>
-
-  </div>
+<dl>
+  <dt><h3 ng-click="editHypothesis()">{{vm.hypothesi.name}}</h3></dt>
+  <dd>
+    <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="backlog" next="build"></tc-test-card>
+  </dd>
+  <dd>
+    <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="build" prev="backlog" next="measure"></tc-test-card>
+  </dd>
+  <dd>
+    <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="measure" next="learn" prev="build"></tc-test-card>
+  </dd>
+  <dd>
+    <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="learn" prev="measure"></tc-test-card>
+  </dd>
+</dl>

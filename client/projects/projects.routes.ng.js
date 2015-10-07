@@ -10,12 +10,11 @@ angular.module('baseappApp')
   })
   .state('projects.detail', {
     url: '/:projectId',
-    resolve:{
-      project:function($meteor, $stateParams){
-        $meteor.subscribe('projects');
-        return $meteor.object(Projects, $stateParams.projectId);
-      }
-    },
+    // resolve:{
+    //   project:function($meteor, $stateParams){
+    //       return $meteor.object(Projects, $stateParams.projectId);
+    //   }
+    // },
     views:{
       "@":{
         templateUrl: 'client/projects/project-detail.view.ng.html',

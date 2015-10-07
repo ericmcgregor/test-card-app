@@ -7,19 +7,18 @@ angular.module('baseappApp')
     templateUrl: 'client/components/tcCanvas/tc-canvas.view.ng.html',
     replace: true,
     scope:{
-      projectId:"@"
+      projectId:"@",
+      project:"="
     },
     bindToController:true,
     controllerAs:'vm',
     controller:function($scope){
 
 
-        $meteor.autorun($scope, ()=>{
           this.hypothesis = $meteor.collection( () => {
-            return Hypothesis.find({projectId:$scope.getReactively('vm.projectId')});
+            return Hypothesis.find({projectId:$scope.getReactively('vm.project._id')});
           });
           $meteor.subscribe('hypothesis');
-        })
 
 
 
