@@ -12,10 +12,14 @@ angular.module('baseappApp')
     bindToController:true,
     controllerAs:'vm',
     controller:function($scope){
-
+      this.testCards = $meteor.collection( () => {
+          return TestCard.find({
+            'hypothesiId':this.hypothesi._id
+          })
+      });
     },
     link: function(scope, elem, attrs) {
-
+      // console.log(scope.vm.testCards)
       scope.addTestCard = function(id) {
         $meteor.call('createTestCard', id);
       }

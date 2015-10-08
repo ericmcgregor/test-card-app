@@ -3,7 +3,7 @@
   <base href="/">
 </head>
 
-<body layout="row">
+<body class="layout layout-row layout-fill">
   <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('min-width: 333px')" class="md-sidenav-left md-whiteframe-3dp">
     <md-content>
       <md-toolbar class="md-primary md-hue-2">
@@ -16,15 +16,12 @@
 
   </md-sidenav>
 
-  <md-content layout="row" layout-fill>
-    <div ui-view="" layout="column" layout-fill></div>
+  <md-content class="layout layout-row layout-fill">
+    <div ui-view="" class="layout layout-column layout-fill"></div>
   </md-content>
 
   <md-sidenav md-component-id="right" class="md-sidenav-right md-whiteframe-3dp">
-
         <div layout="column" layout-fill ui-view="sidenav-right"></div>
-
-
   </md-sidenav>
 
 

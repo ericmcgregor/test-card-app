@@ -18,21 +18,77 @@
       </md-grid-tile>
 
     <md-grid-tile>
-      <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="backlog" next="build"></tc-test-card>
+      <md-content layout-fill>
+        <tc-test-card
+          ng-repeat="card in vm.testCards | filter:{state:'backlog'} track by card._id"
+          card="card"
+          state="backlog"
+          next="build"></tc-test-card>
+      </md-content>
     </md-grid-tile>
 
     <md-grid-tile>
-      <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="build" prev="backlog" next="measure"></tc-test-card>
+      <md-content layout-fill>
+        <tc-test-card ng-repeat="card in vm.testCards | filter:{state:'build'} track by card._id"
+          card="card"
+          state="build"
+          prev="backlog"
+          next="measure"></tc-test-card>
+      </md-content>
     </md-grid-tile>
 
     <md-grid-tile>
-      <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="measure" next="learn" prev="build"></tc-test-card>
+      <md-content layout-fill>
+        <tc-test-card
+          ng-repeat="card in vm.testCards | filter:{state:'measure'} track by card._id"
+          card="card"
+          state="backlog"
+          prev="build"
+          next="learn"></tc-test-card>
+      </md-content>
     </md-grid-tile>
 
     <md-grid-tile>
-      <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="learn" prev="measure"></tc-test-card>
+      <md-content layout-fill>
+        <tc-test-card
+          ng-repeat="card in vm.testCards | filter:{state:'learn'} track by card._id"
+          card="card"
+          state="learn"
+          prev="measure"></tc-test-card>
+      </md-content>
     </md-grid-tile>
 
     </md-grid-list>
 
+</div>
+
+
+
+
+
+
+<div>
+<h3 ng-click="editHypothesis()">{{vm.hypothesi.name}}</h3>
+<dl>
+  <dt>Backlog:</dt>
+  <tc-test-card
+    ng-repeat="card in vm.testCards | filter:{state:'backlog'} track by card._id"
+    card="card" state="backlog" next="build"></tc-test-card>
+
+  <!-- <dd ng-repeat="card in vm.testCards | filter:{state:'backlog'} track by card._id">
+    {{card.name}}
+  </dd> -->
+  <!-- <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="backlog" next="build"></tc-test-card> -->
+  <dt>Build:</dt>
+  <dd ng-repeat="card in vm.testCards | filter:{state:'build'} track by card._id">
+    {{card.name}}
+    <!-- <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="build" prev="backlog" next="measure"></tc-test-card> -->
+  </dd>
+  <dd>
+    <!-- <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="measure" next="learn" prev="build"></tc-test-card> -->
+  </dd>
+  <dd>
+    <!-- <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="learn" prev="measure"></tc-test-card> -->
+  </dd>
+</dl>
 </div>

@@ -1,7 +1,8 @@
 .test {
   border:1px solid black;
 }
-md-grid-tile:focus {outline:none !important;}
+md-grid-tile:focus,
+div:focus {outline:none !important;}
 .md-sidenav-left {
   z-index:58!important;
 }

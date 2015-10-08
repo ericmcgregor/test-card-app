@@ -1,16 +1,27 @@
+<test-container class="test-container layout layout-column flex flex-66">
 
-<dl>
-  <dt><h3 ng-click="editHypothesis()">{{vm.hypothesi.name}}</h3></dt>
-  <dd>
-    <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="backlog" next="build"></tc-test-card>
-  </dd>
-  <dd>
-    <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="build" prev="backlog" next="measure"></tc-test-card>
-  </dd>
-  <dd>
-    <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="measure" next="learn" prev="build"></tc-test-card>
-  </dd>
-  <dd>
-    <tc-test-card hypothesi-id="{{vm.hypothesi._id}}" state="learn" prev="measure"></tc-test-card>
-  </dd>
-</dl>
+  <test-row ng-repeat="card in vm.testCards track by card._id" class="test-row layout layout-row layout-fill">
+
+      <tc-test-card card="card"
+      state="backlog"
+      next="build">
+      </tc-test-card>
+
+      <learning-card class="learning-card flex md-whiteframe-z1 layout layout-margin layout-column">
+            <div class="md-toolbar-tools" style="height:44px;">
+              <h2>
+                <span>We learned:</span>
+              </h2>
+            </div>
+            <md-content class="flex">
+              <p class="md-body-1 flex layout-padding" style="margin-top:0; margin-bottom:0;">
+              The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+              two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+            </p>
+            </md-content>
+            <div class="layout layout-row flex layout-align-center-center" style="height:24px; margin:0; padding:0;">
+                <md-icon md-svg-icon="action:ic_check_circle_24px" class="state-icon flex"></md-icon>
+            </div>
+      </learning-card>
+  </test-row>
+</test-container>

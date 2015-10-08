@@ -1,4 +1,9 @@
 
+          <dd>
+              <p ng-click="editTestCard(vm.card._id, vm.card.state, vm.next, vm.prev)">{{vm.card.name}}</p>
+              <!-- <p>{{vm.card.state}}</p> -->
+          </dd>
+
   <md-content layout-fill>
     <md-list>
       <md-list-item ng-repeat="card in vm.testCards track by card._id" class="md-3-line">
@@ -18,3 +23,16 @@
     </md-list>
 
   </md-content>
+
+
+
+  <md-list>
+    <md-list-item class="md-2-line">
+        <div class="md-list-item-text" layout-padding layout="column">
+          <div ng-click="editTestCard(vm.card._id, vm.card.state, vm.next, vm.prev)">
+            <h3>{{vm.card.name}}</h3>
+            <h4>{{vm.card._id}}</h4>
+          </div>
+        </div>
+    </md-list-item>
+  </md-list>

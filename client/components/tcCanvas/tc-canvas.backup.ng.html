@@ -1,3 +1,11 @@
+<div>
+  <!-- <div ng-repeat="item in vm.hypothesis">{{item.name}}</div> -->
+  <tc-row ng-repeat="hypothesi in vm.hypothesis track by hypothesi._id" hypothesi="hypothesi"></tc-row>
+
+</div>
+
+
+
 <div flex>
   <div layout="row centered" style="text-align:center;">
     <section flex layout-align="center center">hypothesis</section>

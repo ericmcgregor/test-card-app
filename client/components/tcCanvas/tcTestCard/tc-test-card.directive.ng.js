@@ -10,20 +10,12 @@ angular.module('baseappApp')
       hypothesiId:"@",
       state:"@",
       next:"@",
-      prev:"@"
+      prev:"@",
+      card:"="
     },
     bindToController:true,
     controllerAs:'vm',
     controller:function() {
-
-      this.testCards = $meteor.collection( () => {
-          return TestCard.find({
-            'state':this.state,
-            'hypothesiId':this.hypothesiId
-          })
-      });
-      $meteor.subscribe('testCard');
-
 
     },
     link: function(scope, elem, attrs, ctrl) {
@@ -45,7 +37,7 @@ angular.module('baseappApp')
       }
 
       scope.remove = function(card) {
-        scope.vm.testCards.remove(card);
+        $meteor.collection(TestCard).remove(card);
       }
     }
   };

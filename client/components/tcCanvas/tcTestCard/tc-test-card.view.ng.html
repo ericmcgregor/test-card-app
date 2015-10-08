@@ -1,5 +1,30 @@
+<test-card class="test-card flex layout layout-column layout-margin md-whiteframe-z1">
 
-          <div ng-repeat="card in vm.testCards track by card._id">
-              <h3 ng-click="editTestCard(card._id, card.state, vm.next, vm.prev)">{{card.name}}</h3>
-              <p>{{card.state}}</p>
-          </div>
+      <div class="md-toolbar-tools" style="height:44px;">
+        <h2>
+          <span>To verify that, we will:</span>
+        </h2>
+        <span flex></span>
+        <md-icon ng-click="editTestCard(vm.card._id, vm.card.state)" md-svg-icon="navigation:ic_more_vert_24px" class=""></md-icon>
+        <!-- <md-icon ng-click="remove(vm.card)" md-svg-icon="content:ic_clear_24px" class="flex"></md-icon> -->
+
+      </div>
+      <div class="flex">
+      <md-content>
+      <p class="md-body-1 flex layout-padding" style="margin-top:0; margin-bottom:0;">
+        {{vm.card.test}}
+      </p>
+      </md-content>
+      </div>
+      <div class="layout layout-row layout-align-center-center" style="height:24px; margin:0; padding:0;">
+        <div ng-click="vm.card.state='backlog'" ng-class="{'active-state':vm.card.state=='backlog'}" class="layout state-icon-container layout-align-center-center flex md-primary">
+          <md-icon md-svg-icon="action:ic_toc_24px" class="state-icon flex"></md-icon>
+        </div>
+        <div ng-click="vm.card.state='build'" ng-class="{'active-state':vm.card.state=='build'}" class="layout state-icon-container layout-align-center-center flex md-primary">
+          <md-icon md-svg-icon="action:ic_cached_24px" class="state-icon flex"></md-icon>
+        </div>
+        <div ng-click="vm.card.state='measure'" ng-class="{'active-state':vm.card.state=='measure'}" class="layout state-icon-container layout-align-center-center flex md-primary">
+          <md-icon md-svg-icon="action:ic_trending_up_24px" class="state-icon flex"></md-icon>
+        </div>
+      </div>
+</test-card>

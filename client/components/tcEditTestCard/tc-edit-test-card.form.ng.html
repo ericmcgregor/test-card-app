@@ -13,35 +13,21 @@
 
 
   <md-content flex>
-    <md-tabs md-dynamic-height md-border-bottom>
-      <md-tab label="view">
-              <md-content>
-                <h2>View content here... click to edit</h2>
-              </md-content>
-            </md-tab>
+    <form name="text-justify" layout-padding>
+      <md-input-container ng-repeat="(key, value) in vm.testCard" class="flex md-default-theme md-input-has-value">
+              <label for="input_153">{{::key}}</label>
+              <input ng-model="vm.testCard[key]">
+      </md-input-container>
+    </form>
 
-        <md-tab label="edit">
-                <md-content class="md-padding">
-
-                  <form name="text-justify" layout-padding>
-                    <md-input-container ng-repeat="(key, value) in vm.testCard" class="flex md-default-theme md-input-has-value">
-                            <label for="input_153">{{::key}}</label>
-                            <input ng-model="vm.hypothesis.test_card[vm.hypothesis.test_version][key]" ng-disabled="vm.shouldDisable(key)">
-                    </md-input-container>
-                  </form>
-
-                  <div layout="row" layout-align="center end">
-                    <md-button class="md-primary" ng-click="save()">Save</md-button>
-                  </div>
-
-                </md-content>
-              </md-tab>
-    </md-tabs>
+    <div layout="row" layout-align="center end">
+      <md-button class="md-primary" ng-click="save()">Save</md-button>
+    </div>
 
   </md-content>
 
   <div layout="row" layout-align="center end">
-    <md-button class="md-primary" ng-click="vm.hypothesi.save()">Save</md-button>
+    <md-button class="md-primary" ng-click="vm.testCard.save()">Save</md-button>
     <md-button class="md-warning" ng-click="remove()">Delete</md-button>
 
   </div>
