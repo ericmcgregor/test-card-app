@@ -1,27 +1,30 @@
 <test-container class="test-container layout layout-column flex flex-66">
 
-  <test-row ng-repeat="card in vm.testCards track by card._id" class="test-row layout layout-row layout-fill">
+  <test-row ng-repeat="testCard in vm.testCards track by testCard._id"
+  class="test-row layout layout-column layout-fill  md-whiteframe-z2"  style="margin-bottom:10px;">
+  <md-toolbar class="md-primary md-hue-1">
+    <div class="md-toolbar-tools">
+      <div class="editable flex" contenteditable="true" ng-model="testCard.name"></div>
+      <span flex></span>
+      <md-button class="md-icon-button" aria-label="Settings">
+        <md-icon ng-click="removeTestCard(testCard._id)" md-svg-icon="content:ic_clear_24px" class=""></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" aria-label="Settings" ng-if="!testCard.expanded">
+        <md-icon ng-click="testCard.expanded = !testCard.expanded" md-svg-icon="navigation:ic_expand_more_24px" class=""></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" aria-label="Settings" ng-if="testCard.expanded">
+        <md-icon ng-click="testCard.expanded = !testCard.expanded" md-svg-icon="navigation:ic_expand_less_24px" class=""></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
 
-      <tc-test-card card="card"
+  <div class="layout layout-row layout-fill flex">
+      <tc-test-card test-card="testCard"
       state="backlog"
       next="build">
       </tc-test-card>
 
-      <learning-card class="learning-card flex md-whiteframe-z1 layout layout-margin layout-column">
-            <div class="md-toolbar-tools" style="height:44px;">
-              <h2>
-                <span>We learned:</span>
-              </h2>
-            </div>
-            <md-content class="flex">
-              <p class="md-body-1 flex layout-padding" style="margin-top:0; margin-bottom:0;">
-              The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-              two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-            </p>
-            </md-content>
-            <div class="layout layout-row flex layout-align-center-center" style="height:24px; margin:0; padding:0;">
-                <md-icon md-svg-icon="action:ic_check_circle_24px" class="state-icon flex"></md-icon>
-            </div>
-      </learning-card>
+      <tc-learn-card test-card="testCard"></tc-learn-card>
+  </div>
   </test-row>
 </test-container>

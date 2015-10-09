@@ -4,10 +4,27 @@
   }
   .state-icon-container {
     opacity:0.3;
-    &.active-state {
-      background:#d0f8ce;
+    &.active {
       opacity:1;
     }
   }
 
+  h3.md-title {
+    margin-bottom:0;
+  }
+
+
+}
+.editable {
+  cursor:pointer;
+  &:hover {
+  }
+  &.editing {
+    padding:20px 10px;
+    cursor:default;
+  }
+  &:focus {outline:none !important;}
+}
+.not-ready {
+  opacity:0.3;
 }

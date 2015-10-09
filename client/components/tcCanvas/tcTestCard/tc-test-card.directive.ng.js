@@ -11,7 +11,7 @@ angular.module('baseappApp')
       state:"@",
       next:"@",
       prev:"@",
-      card:"="
+      testCard:"="
     },
     bindToController:true,
     controllerAs:'vm',
@@ -39,6 +39,31 @@ angular.module('baseappApp')
       scope.remove = function(card) {
         $meteor.collection(TestCard).remove(card);
       }
+    }
+  };
+})
+.directive("contenteditable", function() {
+  return {
+    require: "ngModel",
+    link: function(scope, element, attrs, ngModel) {
+
+      function read() {
+        ngModel.$setViewValue(element.html());
+      }
+
+      ngModel.$render = function() {
+        element.html(ngModel.$viewValue || "");
+      };
+      element.bind("focus", function(){
+        element.addClass('editing md-whiteframe-z3');
+      });
+      element.bind("keyup change", function() {
+        scope.$apply(read);
+      });
+      element.bind("blur", function() {
+        element.removeClass('editing md-whiteframe-z3');
+        scope.$apply(read);
+      });
     }
   };
 });

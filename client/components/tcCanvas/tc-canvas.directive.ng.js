@@ -20,6 +20,7 @@ angular.module('baseappApp')
 
           $meteor.subscribe('hypothesis');
           $meteor.subscribe('testCard');
+          $meteor.subscribe('learnings');
 
     },
     link: function(scope, elem, attrs) {
@@ -27,11 +28,13 @@ angular.module('baseappApp')
       scope.addTestCard = function(id) {
         $meteor.call('createTestCard', id);
       }
-      scope.newHypothesis = function() {
+      scope.createHypothesis = function() {
         console.log(scope.vm.projectId)
-        $meteor.call('createHypothesis', scope.vm.projectId, 'new hypothesis');
+        $meteor.call('createHypothesis', scope.vm.project._id, 'new hypothesis');
       }
-
+      scope.removeHypothesis = function(id) {
+        $meteor.collection(Hypothesis).remove(id);
+      }
     }
   };
 });

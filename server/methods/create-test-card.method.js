@@ -2,7 +2,7 @@
 
 Meteor.methods({
   createTestCard: function(hypothesiId) {
-    console.log(hypothesiId)
+
     let hypothesi = Hypothesis.find(hypothesiId);
 
       let testCard = {
@@ -16,16 +16,13 @@ Meteor.methods({
             'metric':'to verify that we will...',
             'criteria':'we are right if...',
             'state':'backlog',
-            'result':'unclear',
-            'learning':{
-              'observation':'we observed...',
-              'learning':'unclear results...',
-              'next_steps':'continue on...',
-            }
-
+            'expanded':true
           }
 
+      let testCardId = TestCard.insert(testCard);
 
-      return TestCard.insert(testCard);
+      Meteor.call('createLearning', testCardId);
+
+      return testCardId;
   }
 });

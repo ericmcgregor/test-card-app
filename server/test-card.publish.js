@@ -17,3 +17,8 @@ Meteor.publish('testCard', function(options, searchString) {
     }
   }, options);
 });
+
+
+TestCard.after.remove(function(userId, testCard){
+  Learnings.remove({testCardId:testCard._id});
+});

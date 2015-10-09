@@ -17,3 +17,7 @@ Meteor.publish('hypothesis', function(options, searchString) {
     }
   }, options);
 });
+
+Hypothesis.after.remove(function(userId, hypothesis){
+  TestCard.remove({hypothesiId:hypothesis._id});
+});
