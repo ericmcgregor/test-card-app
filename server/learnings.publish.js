@@ -17,3 +17,19 @@ Meteor.publish('learnings', function(options, searchString) {
     }
   }, options);
 });
+
+Learnings.after.update(function(userId, learning, fieldNames, modifier, options){
+  // TestCard.remove({hypothesiId:hypothesis._id});
+  console.log(fieldNames)
+  let state = 'learning';
+  if(fieldNames[0]==='result' && !modifier.$set.result) {
+    state = 'measure';
+  }
+  TestCard.update({
+    _id:{$eq:learning.testCardId}
+  }, {
+    $set:{
+      state:state,
+    }
+  });
+});

@@ -13,6 +13,8 @@ angular.module('baseappApp')
     controllerAs:'vm',
     controller:function($scope) {
       this.learning = $meteor.object(Learnings, {'testCardId':this.testCard._id});
+
+
     },
     link: function(scope, elem, attrs, ctrl) {
       scope.toggleResult = function(result){
@@ -24,6 +26,12 @@ angular.module('baseappApp')
 
       }
 
+      let results = ['measure', 'learning'];
+      scope.showResult = function(){
+        return results.find( (result) => {
+          return result == ctrl.testCard.state;
+        } ) ? true : false;
+      }
     }
   };
 });
