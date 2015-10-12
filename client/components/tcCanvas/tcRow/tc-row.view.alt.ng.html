@@ -1,12 +1,14 @@
 <section class="layout layout-column">
 
-  <div class="hypothesis flex layout layout-column layout-padding">
-    <h2 class="md-headline editable" contenteditable="true" ng-model="vm.hypothesi.name"></h2>
-    <!-- <div class="layout layout-row">
-      <md-button ng-click="removeHypothesis(vm.hypothesi._id)" class="md-button md-accent" aria-label="">
-        Remove hypothesis
-      </md-button>
-    </div> -->
+  <div class="hypothesis flex layout layout-column layout-padding" style="margin-bottom:20px;">
+    <md-toolbar class="md-primary md-hue-1">
+      <div class="md-toolbar-tools">
+        <h2 class="md-headline editable flex" contenteditable="true" ng-model="vm.hypothesi.name"></h2>
+        <md-button ng-click="removeHypothesis()">
+          <md-icon md-svg-icon="action:ic_delete_24px" md-menu-align-target></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
   </div>
 
   <test-container class="test-container layout layout-column flex">
