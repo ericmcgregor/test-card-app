@@ -4,7 +4,7 @@ angular.module('baseappApp')
 .directive('tcTestCard', function($meteor, $state) {
   return {
     restrict: 'EA',
-    templateUrl: 'client/components/tcCanvas/tcTestCard/tc-test-card.view.ng.html',
+    templateUrl: 'client/components/tcCanvas/tcTestCard/tc-test-card.view.alt.ng.html',
     replace: true,
     scope:{
       hypothesiId:"@",

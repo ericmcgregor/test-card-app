@@ -1,0 +1,71 @@
+<section class="layout layout-column">
+
+  <div class="hypothesis flex layout layout-column layout-padding">
+    <h2 class="md-headline editable" contenteditable="true" ng-model="vm.hypothesi.name"></h2>
+    <!-- <div class="layout layout-row">
+      <md-button ng-click="removeHypothesis(vm.hypothesi._id)" class="md-button md-accent" aria-label="">
+        Remove hypothesis
+      </md-button>
+    </div> -->
+  </div>
+
+  <test-container class="test-container layout layout-column flex">
+
+    <test-row ng-repeat="testCard in vm.testCards track by testCard._id"
+    class="test-row layout layout-row layout-fill">
+
+      <div class="layout layout-column flex-25">
+        <md-list>
+              <md-list-item class="md-3-line">
+                <img src="{{avatar}}" class="md-avatar" alt="{{testCard.name}}" />
+                <div class="md-list-item-text" layout="column">
+                  <h3 class="editable" contenteditable="true" ng-model="testCard.name"></h3>
+                  <h4>assigned to: {{ testCard.assigned_to }}</h4>
+                  <p>deadline: {{ testCard.deadline }}</p>
+                </div>
+              </md-list-item>
+              <!-- <md-divider ></md-divider> -->
+        </md-list>
+      </div>
+
+      <div class="layout layout-column flex">
+
+        <tc-test-card test-card="testCard"
+        state="backlog"
+        next="build">
+        </tc-test-card>
+        
+      </div>
+
+
+      <div class="layout layout-column flex">
+        <md-list>
+              <md-list-item class="md-3-line">
+                <div class="md-list-item-text" layout="column">
+                  <h3>We learned:</h3>
+                  <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et consectetur unde itaque, voluptas consequuntur, magni.</h4>
+                </div>
+              </md-list-item>
+              <md-divider ></md-divider>
+        </md-list>
+
+      </div>
+
+    </test-row>
+
+    <div class="layout layout-row flex layout-align-center-center">
+      <md-button ng-click="addTestCard(vm.hypothesi._id)" class="md-button" aria-label="">
+        <!-- <md-icon md-svg-icon="navigation:ic_expand_more_24px" class=""></md-icon> -->
+        Add Test Card
+      </md-button>
+    </div>
+  </test-container>
+  <!-- <div class="layout layout-row layout-fill flex">
+      <tc-test-card test-card="testCard"
+      state="backlog"
+      next="build">
+      </tc-test-card>
+
+      <tc-learn-card test-card="testCard"></tc-learn-card>
+  </div> -->
+</section>

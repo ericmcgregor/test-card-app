@@ -13,5 +13,8 @@ Meteor.methods({
         multi:true
       });
 
+  },
+  getAvatar: function(){
+      return faker.image.avatar();
   }
 });

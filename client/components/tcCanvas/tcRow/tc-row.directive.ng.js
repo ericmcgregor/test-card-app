@@ -4,7 +4,7 @@ angular.module('baseappApp')
 .directive('tcRow', function($meteor, $state) {
   return {
     restrict: 'EA',
-    templateUrl: 'client/components/tcCanvas/tcRow/tc-row.view.ng.html',
+    templateUrl: 'client/components/tcCanvas/tcRow/tc-row.view.alt.ng.html',
     replace: true,
     scope:{
       hypothesi:"="
@@ -30,6 +30,22 @@ angular.module('baseappApp')
       scope.removeTestCard = function(cardId){
         $meteor.collection(TestCard).remove(cardId);
       }
+
+
+      $meteor.call('getAvatar').then(function(r){
+        scope.avatar = r;
+      });
+
+      scope.getAvatar = function(){
+        let avatar = $meteor.call('getAvatar').then(function(r){
+          console.log(r)
+          return r;
+        });
+
+        return avatar;
+
+      }
+
 
       // scope.editHypothesis = function(){
       //   $state.go('projects.detail.hypothesis', {hypothesiId:scope.vm.hypothesi._id})
