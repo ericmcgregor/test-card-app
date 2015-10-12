@@ -20,8 +20,8 @@ Meteor.publish('learnings', function(options, searchString) {
 
 Learnings.after.update(function(userId, learning, fieldNames, modifier, options){
   // TestCard.remove({hypothesiId:hypothesis._id});
-  console.log(fieldNames)
   let state = 'learning';
+
   if(fieldNames[0]==='result' && !modifier.$set.result) {
     state = 'measure';
   }
@@ -29,7 +29,7 @@ Learnings.after.update(function(userId, learning, fieldNames, modifier, options)
     _id:{$eq:learning.testCardId}
   }, {
     $set:{
-      state:state,
+      state:state
     }
   });
 });

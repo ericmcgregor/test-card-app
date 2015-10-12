@@ -17,7 +17,7 @@
       </div> -->
 
       <!-- <div class="flex layout layout-fill layout-column" ng-show="!collapsed"> -->
-        <div class="layout layout-column flex">
+        <div class="layout layout-column flex"  ng-show="showResult()">
           <div ng-class="{'flex':!vm.testCard.expanded}">
             <h3 class="md-title" style="margin-top:5px;">We Learned:</h3>
             <p class="md-body-1 layout editable" contenteditable="true" ng-model="vm.learning.learning"></p>

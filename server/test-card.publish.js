@@ -22,3 +22,12 @@ Meteor.publish('testCard', function(options, searchString) {
 TestCard.after.remove(function(userId, testCard){
   Learnings.remove({testCardId:testCard._id});
 });
+TestCard.before.update(function(userId, testCard, fieldNames, modifier, options){
+  if(fieldNames[0]==='state' && modifier.$set.state==='measure'){
+    let learning = Learnings.findOne({testCardId:testCard._id});
+    if(!learning.result) {
+      modifier.$set.expanded = true;
+    }
+  }
+
+});

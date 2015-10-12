@@ -14,8 +14,8 @@
     <test-row ng-repeat="testCard in vm.testCards track by testCard._id"
     class="test-row layout layout-row layout-fill">
 
-      <div class="layout layout-column flex-25">
-        <md-list>
+      <div class="layout layout-column flex-25"  ng-mouseenter="showOptions=true" ng-mouseleave="showOptions=false" >
+        <md-list class="flex">
               <md-list-item class="md-3-line">
                 <img src="{{avatar}}" class="md-avatar" alt="{{testCard.name}}" />
                 <div class="md-list-item-text" layout="column">
@@ -26,6 +26,20 @@
               </md-list-item>
               <!-- <md-divider ></md-divider> -->
         </md-list>
+
+        <div style="height:48px;">
+        <div class="layout layout-row" ng-show="showOptions">
+          <md-button ng-click="testCard.expanded = !testCard.expanded"  class="md-icon-button" aria-label="Settings" ng-if="!testCard.expanded">
+            <md-icon md-svg-icon="navigation:ic_expand_more_24px" class=""></md-icon>
+          </md-button>
+          <md-button ng-click="testCard.expanded = !testCard.expanded" class="md-icon-button" aria-label="Settings" ng-if="testCard.expanded">
+            <md-icon md-svg-icon="navigation:ic_expand_less_24px" class=""></md-icon>
+          </md-button>
+          <md-button ng-click="removeTestCard(testCard._id)" class="md-icon-button" aria-label="Settings">
+            <md-icon md-svg-icon="content:ic_clear_24px" class=""></md-icon>
+          </md-button>
+        </div>
+        </div>
       </div>
 
 
@@ -39,7 +53,7 @@
 
     </test-row>
 
-    <div class="layout layout-row flex layout-align-center-center">
+    <div class="layout layout-row flex layout-align-start-center">
       <md-button ng-click="addTestCard(vm.hypothesi._id)" class="md-button" aria-label="">
         <!-- <md-icon md-svg-icon="navigation:ic_expand_more_24px" class=""></md-icon> -->
         Add Test Card
