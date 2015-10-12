@@ -24,12 +24,11 @@
 
   <md-content class="tc-canvas-content layout layout-column flex">
     <div ng-class="{'scale':scale}">
-    <tc-hypothesis-container ng-repeat="hypothesi in vm.hypothesis track by hypothesi._id">
-      <br>
-        <tc-row hypothesi="hypothesi"></tc-row>
-      <br>
-      <md-divider ></md-divider>
-    </tc-hypothesis-container>
+
+
+    <tc-hypothesis-row ng-repeat="hypothesi in vm.hypothesis track by hypothesi._id" hypothesi="hypothesi">
+
+    </tc-hypothesis-row>
     </div>
   </md-content>
 

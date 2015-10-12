@@ -29,5 +29,11 @@ TestCard.before.update(function(userId, testCard, fieldNames, modifier, options)
       modifier.$set.expanded = true;
     }
   }
-
+});
+TestCard.after.update(function(userId, testCard, fieldNames, modifier, options){
+  if(modifier.$unset) {
+    modifier.$pull = {
+      assigned_to:null
+    }
+  }
 });

@@ -9,7 +9,10 @@ Meteor.methods({
             'projectId':hypothesi.projectId,
             'hypothesiId':hypothesiId,
             'name':'test name 1',
-            'assigned_to':'person',
+            'assigned_to':[{
+              name:faker.name.firstName()+' '+faker.name.lastName(),
+              image:faker.image.avatar()
+            }],
             'deadline':'date',
             'duration':'time',
             'hypothesis':hypothesi.name,

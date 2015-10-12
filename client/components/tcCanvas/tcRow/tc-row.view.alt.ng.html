@@ -1,32 +1,36 @@
-<section class="layout layout-column">
 
-  <div class="hypothesis flex layout layout-column layout-padding" style="margin-bottom:20px;">
-    <md-toolbar class="md-primary md-hue-1">
-      <div class="md-toolbar-tools">
-        <h2 class="md-headline editable flex" contenteditable="true" ng-model="vm.hypothesi.name"></h2>
-        <md-button ng-click="removeHypothesis()">
-          <md-icon md-svg-icon="action:ic_delete_24px" md-menu-align-target></md-icon>
-        </md-button>
-      </div>
-    </md-toolbar>
-  </div>
-
-  <test-container class="test-container layout layout-column flex">
-
-    <test-row ng-repeat="testCard in vm.testCards track by testCard._id"
-    class="test-row layout layout-row layout-fill">
+    <div class="test-row layout layout-row layout-fill">
 
       <div class="layout layout-column flex-25"  ng-mouseenter="showOptions=true" ng-mouseleave="showOptions=false" >
+
         <md-list class="flex">
-              <md-list-item class="md-3-line">
-                <img src="{{avatar}}" class="md-avatar" alt="{{testCard.name}}" />
-                <div class="md-list-item-text" layout="column">
+              <md-list-item class="">
+                <!-- <img src="{{avatar}}" class="md-avatar" alt="{{testCard.name}}" /> -->
+                <div class="layout layout-column flex">
                   <h3 class="editable" contenteditable="true" ng-model="testCard.name"></h3>
-                  <h4>assigned to: {{ testCard.assigned_to }}</h4>
-                  <p>deadline: {{ testCard.deadline }}</p>
+                  <div class="layout layout-row layout-fill">
+                    <p class="md-caption flex-25">assigned to:</p>
+                    <!-- <p class="md-caption flex editable" contenteditable="true" ng-model="testCard.assigned_to"></p> -->
+                    <div class="flex autocomplete">
+                      <md-contact-chips
+                        ng-model="assigned_to"
+                        md-contacts="contacts"
+                        md-contact-name="name"
+                        md-contact-image="image"
+                        placeholder="To">
+                    </md-contact-chips>
+                    </div>
+                  </div>
+                  <div class="layout layout-row layout-fill">
+                    <p class="md-caption flex-25">deadline:</p>
+                    <p class="md-caption flex editable" contenteditable="true" ng-model="testCard.deadline"></p>
+                  </div>
+                  <div class="layout layout-row layout-fill">
+                    <p class="md-caption flex-25">duration:</p>
+                    <p class="md-caption flex editable" contenteditable="true" ng-model="testCard.duration"></p>
+                  </div>
                 </div>
               </md-list-item>
-              <!-- <md-divider ></md-divider> -->
         </md-list>
 
         <div style="height:48px;">
@@ -45,29 +49,12 @@
       </div>
 
 
-      <tc-test-card test-card="testCard"
+      <tc-test-card
+      test-card="vm.testCard"
       state="backlog"
       next="build">
       </tc-test-card>
 
-      <tc-learn-card test-card="testCard"></tc-learn-card>
+      <tc-learn-card test-card="vm.testCard"></tc-learn-card>
 
-
-    </test-row>
-
-    <div class="layout layout-row flex layout-align-start-center">
-      <md-button ng-click="addTestCard(vm.hypothesi._id)" class="md-button" aria-label="">
-        <!-- <md-icon md-svg-icon="navigation:ic_expand_more_24px" class=""></md-icon> -->
-        Add Test Card
-      </md-button>
     </div>
-  </test-container>
-  <!-- <div class="layout layout-row layout-fill flex">
-      <tc-test-card test-card="testCard"
-      state="backlog"
-      next="build">
-      </tc-test-card>
-
-      <tc-learn-card test-card="testCard"></tc-learn-card>
-  </div> -->
-</section>
