@@ -1,0 +1,48 @@
+<test-card class="layout layout-column flex">
+
+        <div class="layout layout-column flex">
+          <div ng-class="{'flex':!vm.testCard.expanded}">
+            <h3 class="md-title" style="margin-top:5px;">To verify that, we will:</h3>
+            <p class="md-body-1 layout editable" contenteditable="true" ng-model="vm.testCard.test"></p>
+          </div>
+          <div class="flex" ng-if="vm.testCard.expanded">
+            <!-- <md-divider ></md-divider> -->
+            <h3 class="md-title">And measure:</h3>
+            <p class="md-body-1 editable" contenteditable="true" ng-model="vm.testCard.metric"></p>
+            <!-- <md-divider ></md-divider> -->
+            <h3 class="md-title">We are right if:</h3>
+            <p class="md-body-1 editable" contenteditable="true" ng-model="vm.testCard.criteria"></p>
+            <!-- <md-divider ></md-divider> -->
+          </div>
+          <div class="result-container layout layout-row layout-fill layout-align-center-center">
+            <!-- <p class="md-caption flex-25">state:</p> -->
+            <div class="flex layout layout-row layout-align-center-center">
+              <md-button aria-label="test"
+              ng-click="vm.testCard.state='backlog'"
+              ng-class="{'md-raised md-accent md-hue-3 active':vm.testCard.state=='backlog'}"
+              class="layout state-icon-container layout-align-center-center flex">
+                <md-icon md-svg-icon="action:ic_toc_24px" class="state-icon flex"></md-icon>
+              </md-button>
+              <md-button aria-label="test"
+              ng-click="vm.testCard.state='build'"
+              ng-class="{'md-raised md-accent md-hue-2 active':vm.testCard.state=='build'}"
+              class="layout state-icon-container layout-align-center-center flex ">
+                <md-icon md-svg-icon="action:ic_cached_24px" class="flex"></md-icon>
+              </md-button>
+              <md-button aria-label="test"
+              ng-click="vm.testCard.state='measure'"
+              ng-class="{'md-raised md-accent active':vm.testCard.state=='measure'}"
+              class="layout state-icon-container layout-align-center-center flex">
+                <md-icon md-svg-icon="action:ic_trending_up_24px" class="state-icon flex"></md-icon>
+              </md-button>
+
+            </div>
+          </div>
+          <!-- <span class="md-caption" ng-click="collapsed=!collapsed">collapse</span> -->
+        </div>
+
+
+
+
+
+</test-card>

@@ -1,0 +1,67 @@
+<learning-card class="learning-card layout layout-column flex">
+      <!-- <div style="width:40px;" class="layout layout-column layout-align-start-center layout-padding">
+        <span><md-icon ng-click="editTestCard(vm.learning._id, vm.learning.state)" md-svg-icon="navigation:ic_menu_24px" class=""></md-icon></span>
+      </div> -->
+      <!-- <div class="md-toolbar-tools" style="height:34px;">
+        <span flex></span>
+        <md-icon ng-click="editTestCard(vm.learning._id, vm.learning.state)" md-svg-icon="navigation:ic_menu_24px" class=""></md-icon>
+      </div>
+
+      <div class="flex" ng-show="collapsed==true">
+      <md-content class="layout-padding">
+      <p class="md-body-1" style="">
+        {{vm.learning.test}}
+      </p>
+      <span class="md-caption" ng-click="collapsed=!collapsed">expand</span>
+      </md-content>
+      </div> -->
+
+      <!-- <div class="flex layout layout-fill layout-column" ng-show="!collapsed"> -->
+        <div class="layout layout-column flex">
+          <div ng-class="{'flex':!vm.testCard.expanded}">
+            <h3 class="md-title" style="margin-top:5px;">We Learned:</h3>
+            <p class="md-body-1 layout editable" contenteditable="true" ng-model="vm.learning.learning"></p>
+          </div>
+          <div class="flex" ng-if="vm.testCard.expanded">
+            <!-- <md-divider ></md-divider> -->
+            <h3 class="md-title">We observed:</h3>
+            <p class="md-body-1 layout editable" contenteditable="true" ng-model="vm.learning.observation"></p>
+            <!-- <md-divider ></md-divider> -->
+            <h3 class="md-title">Next Steps:</h3>
+            <p class="md-body-1 layout editable" contenteditable="true" ng-model="vm.learning.next_steps"></p>
+          </div>
+          <div class="result-container layout layout-row layout-fill layout-align-center-center" ng-show="vm.testCard.state==='measure'">
+            <!-- <p class="md-caption flex-25">Result:</p> -->
+            <div class="flex layout layout-row layout-align-center-center">
+              <md-button aria-label=""
+              ng-click="toggleResult('invalid')"
+              ng-class="{'md-raised md-warn md-hue-2 active':vm.learning.result=='invalid', 'none-selected':vm.learning.result===''}"
+              class="layout state-icon-container layout-align-center-center flex">
+                <md-icon md-svg-icon="content:ic_block_24px" class="state-icon flex"></md-icon>
+                <span ng-show="vm.learning.result==='invalid'">invalid</span>
+              </md-button>
+              <md-button aria-label=""
+              ng-click="toggleResult('inconclusive')"
+              ng-class="{'md-raised md-accent md-hue-2 active':vm.learning.result=='inconclusive', 'none-selected':vm.learning.result===''}"
+              class="layout state-icon-container layout-align-center-center flex">
+                <md-icon md-svg-icon="content:ic_gesture_24px" class="state-icon flex"></md-icon>
+                <span ng-show="vm.learning.result==='inconclusive'">inconclusive</span>
+              </md-button>
+              <md-button aria-label=""
+              ng-click="toggleResult('valid')"
+              ng-class="{'md-raised md-accent md-hue-2 active':vm.learning.result=='valid', 'none-selected':vm.learning.result===''}"
+              class="layout state-icon-container layout-align-center-center flex">
+                <md-icon md-svg-icon="action:ic_check_circle_24px" class="state-icon flex"></md-icon>
+                <span ng-show="vm.learning.result==='valid'">valid</span>
+              </md-button>
+            </div>
+          </div>
+        <!-- </div> -->
+<!--
+        <div class="layout layout-row flex layout-align-center-center" style="height:24px; margin:0; padding:0;">
+            <md-icon md-svg-icon="action:ic_check_circle_24px" class="state-icon flex"></md-icon>
+        </div> -->
+      </div>
+
+
+</learning-card>
