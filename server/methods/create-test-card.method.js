@@ -3,9 +3,10 @@
 Meteor.methods({
   createTestCard: function(hypothesiId) {
 
-    let hypothesi = Hypothesis.find(hypothesiId);
+    let hypothesi = Hypothesis.findOne(hypothesiId);
 
       let testCard = {
+            'projectId':hypothesi.projectId,
             'hypothesiId':hypothesiId,
             'name':'test name 1',
             'assigned_to':'person',

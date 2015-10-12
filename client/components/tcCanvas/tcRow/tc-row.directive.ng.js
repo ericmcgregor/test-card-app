@@ -31,9 +31,9 @@ angular.module('baseappApp')
         $meteor.collection(TestCard).remove(cardId);
       }
 
-      scope.editHypothesis = function(){
-        $state.go('projects.detail.hypothesis', {hypothesiId:scope.vm.hypothesi._id})
-      }
+      // scope.editHypothesis = function(){
+      //   $state.go('projects.detail.hypothesis', {hypothesiId:scope.vm.hypothesi._id})
+      // }
 
     }
   };

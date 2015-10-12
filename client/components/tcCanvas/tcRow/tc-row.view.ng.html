@@ -1,30 +1,52 @@
-<test-container class="test-container layout layout-column flex flex-66">
+<section class="layout layout-row">
 
-  <test-row ng-repeat="testCard in vm.testCards track by testCard._id"
-  class="test-row layout layout-column layout-fill  md-whiteframe-z2"  style="margin-bottom:10px;">
-  <md-toolbar class="md-primary md-hue-1">
-    <div class="md-toolbar-tools">
-      <div class="editable flex" contenteditable="true" ng-model="testCard.name"></div>
-      <span flex></span>
-      <md-button class="md-icon-button" aria-label="Settings">
-        <md-icon ng-click="removeTestCard(testCard._id)" md-svg-icon="content:ic_clear_24px" class=""></md-icon>
-      </md-button>
-      <md-button class="md-icon-button" aria-label="Settings" ng-if="!testCard.expanded">
-        <md-icon ng-click="testCard.expanded = !testCard.expanded" md-svg-icon="navigation:ic_expand_more_24px" class=""></md-icon>
-      </md-button>
-      <md-button class="md-icon-button" aria-label="Settings" ng-if="testCard.expanded">
-        <md-icon ng-click="testCard.expanded = !testCard.expanded" md-svg-icon="navigation:ic_expand_less_24px" class=""></md-icon>
+  <div class="hypothesis flex layout layout-column layout-padding">
+    <h2 class="md-headline editable" contenteditable="true" ng-model="vm.hypothesi.name"></h2>
+    <div class="layout layout-row">
+      <md-button ng-click="removeHypothesis(vm.hypothesi._id)" class="md-button md-accent" aria-label="">
+        <!-- <md-icon md-svg-icon="navigation:ic_expand_more_24px" class=""></md-icon> -->
+        Remove hypothesis
       </md-button>
     </div>
-  </md-toolbar>
-
-  <div class="layout layout-row layout-fill flex">
-      <tc-test-card test-card="testCard"
-      state="backlog"
-      next="build">
-      </tc-test-card>
-
-      <tc-learn-card test-card="testCard"></tc-learn-card>
   </div>
-  </test-row>
-</test-container>
+
+  <test-container class="test-container layout layout-column flex flex-75">
+
+    <test-row ng-repeat="testCard in vm.testCards track by testCard._id"
+    class="test-row layout layout-column layout-fill">
+      <md-toolbar class="md-primary md-hue-1">
+        <div class="md-toolbar-tools">
+          <md-button ng-click="testCard.expanded = !testCard.expanded"  class="md-icon-button" aria-label="Settings" ng-if="!testCard.expanded">
+            <md-icon md-svg-icon="navigation:ic_expand_more_24px" class=""></md-icon>
+          </md-button>
+          <md-button ng-click="testCard.expanded = !testCard.expanded" class="md-icon-button" aria-label="Settings" ng-if="testCard.expanded">
+            <md-icon md-svg-icon="navigation:ic_expand_less_24px" class=""></md-icon>
+          </md-button>
+          <div class="editable flex" contenteditable="true" ng-model="testCard.name"></div>
+          <span flex></span>
+          <md-button ng-click="removeTestCard(testCard._id)" class="md-icon-button" aria-label="Settings">
+            <md-icon md-svg-icon="content:ic_clear_24px" class=""></md-icon>
+          </md-button>
+
+        </div>
+      </md-toolbar>
+
+      <div class="layout layout-row layout-fill flex">
+          <tc-test-card test-card="testCard"
+          state="backlog"
+          next="build">
+          </tc-test-card>
+
+          <tc-learn-card test-card="testCard"></tc-learn-card>
+      </div>
+    </test-row>
+
+    <div class="layout layout-row flex layout-align-center-center">
+      <md-button ng-click="addTestCard(vm.hypothesi._id)" class="md-button" aria-label="">
+        <!-- <md-icon md-svg-icon="navigation:ic_expand_more_24px" class=""></md-icon> -->
+        Add Test Card
+      </md-button>
+    </div>
+  </test-container>
+
+</section>

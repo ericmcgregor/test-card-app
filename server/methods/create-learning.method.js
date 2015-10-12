@@ -11,7 +11,7 @@ Meteor.methods({
             'observation':'we observed...',
             'learning':'unclear results...',
             'next_steps':'continue on...',
-            'result':'unclear'
+            'result':''
           }
 
     let learningId = Learnings.insert(learning);

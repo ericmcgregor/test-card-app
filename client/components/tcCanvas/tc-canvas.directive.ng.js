@@ -24,17 +24,23 @@ angular.module('baseappApp')
 
     },
     link: function(scope, elem, attrs) {
-      scope.property = 'tcCanvas';
-      scope.addTestCard = function(id) {
-        $meteor.call('createTestCard', id);
-      }
+
       scope.createHypothesis = function() {
         console.log(scope.vm.projectId)
         $meteor.call('createHypothesis', scope.vm.project._id, 'new hypothesis');
       }
-      scope.removeHypothesis = function(id) {
-        $meteor.collection(Hypothesis).remove(id);
+
+      scope.expanded = false;
+      scope.scale = false;
+
+      scope.toggleScale = function(){
+        scope.scale = !scope.scale;
       }
+      scope.expandAll = function(expand) {
+        scope.expanded = expand;
+        $meteor.call('expandAll', scope.vm.project._id, expand);
+      }
+
     }
   };
 });

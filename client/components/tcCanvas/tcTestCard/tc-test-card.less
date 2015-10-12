@@ -1,0 +1,48 @@
+.test-card, .learning-card {
+
+    margin:20px;
+    padding:20px 20px 10px;
+    opacity:0.6;
+
+  .state-icon {
+    margin:0!important;
+  }
+  .state-icon-container {
+    opacity:0.3;
+    &.active {
+      opacity:1;
+    }
+  }
+
+  h3.md-title {
+    margin-bottom:0;
+  }
+
+  &.passive {
+    opacity:0.4
+  }
+
+
+  &.md-whiteframe-z2 {
+    opacity:1;
+  }
+
+  .result-container {
+    padding-top:10px;
+  }
+
+
+}
+.editable {
+  cursor:pointer;
+  &:hover {
+  }
+  &.editing {
+    padding:20px 10px;
+    cursor:default;
+  }
+  &:focus {outline:none !important;}
+}
+.not-ready {
+  opacity:0.3;
+}

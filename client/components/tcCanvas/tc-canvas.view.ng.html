@@ -1,26 +1,36 @@
 
-<div>
+<div class="tc-canvas layout layout-column layout-fill">
 
-<tc-hypothesis-container ng-repeat="hypothesi in vm.hypothesis track by hypothesi._id">
-  <br>
-  <section class="layout layout-row">
-
-    <div class="hypothesis flex layout layout-column layout-padding">
-      <h2 class="md-headline editable" contenteditable="true" ng-model="hypothesi.name"></h2>
-      <p ng-click="addTestCard(hypothesi._id)">Add Test Card</p>
-      <p ng-click="removeHypothesis(hypothesi._id)">Remove hypothesis</p>
-
+  <md-toolbar class="md-theme-indigo">
+    <div  class="md-toolbar-tools">
+    <h1>{{vm.project.name}}</h1>
+    <span class="flex"></span>
+    <!-- ng-class="{'raised md-accent md-hue-2':expanded===false}"  -->
+    <md-button ng-click="createHypothesis()" class="" aria-label="Add Hypothesis" label="Add Hypothesis">
+      <md-icon md-svg-icon="av:ic_queue_24px" class=""></md-icon>
+      Add Hypothesis
+    </md-button>
+    <md-button ng-click="expandAll(false)" class="md-icon-button" aria-label="Settings">
+      <md-icon md-svg-icon="navigation:ic_fullscreen_exit_24px" class=""></md-icon>
+    </md-button>
+    <md-button ng-click="expandAll(true)" class="md-icon-button" aria-label="Settings">
+      <md-icon md-svg-icon="navigation:ic_fullscreen_24px" class=""></md-icon>
+    </md-button>
+    <md-button ng-click="toggleScale()" class="md-icon-button" aria-label="Settings">
+      <md-icon md-svg-icon="action:ic_tab_unselected_24px" class=""></md-icon>
+    </md-button>
     </div>
+  </md-toolbar>
 
-    <tc-row hypothesi="hypothesi"></tc-row>
-
-  </section>
-  <br>
-  <md-divider ></md-divider>
-</tc-hypothesis-container>
-
-<br>
-
-<md-button ng-click="createHypothesis()" class="md-raised">Add Hypothesis</md-button>
+  <md-content class="tc-canvas-content layout layout-column flex">
+    <div ng-class="{'scale':scale}">
+    <tc-hypothesis-container ng-repeat="hypothesi in vm.hypothesis track by hypothesi._id">
+      <br>
+        <tc-row hypothesi="hypothesi"></tc-row>
+      <br>
+      <md-divider ></md-divider>
+    </tc-hypothesis-container>
+    </div>
+  </md-content>
 
 </div>
