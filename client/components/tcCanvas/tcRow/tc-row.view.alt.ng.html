@@ -3,45 +3,34 @@
 
       <div class="layout layout-column flex-25"  ng-mouseenter="showOptions=true" ng-mouseleave="showOptions=false" >
 
-        <md-list class="flex">
-              <md-list-item class="">
+        <div class="flex layout layout-column">
                 <!-- <img src="{{avatar}}" class="md-avatar" alt="{{testCard.name}}" /> -->
-                <div class="layout layout-column flex">
-                  <h3 class="editable" contenteditable="true" ng-model="testCard.name"></h3>
+                <h3 class="editable" contenteditable="true" ng-model="vm.testCard.name"></h3>
+                <div class="layout layout-column flex" ng-if="vm.testCard.expanded">
                   <div class="layout layout-row layout-fill">
                     <p class="md-caption flex-25">assigned to:</p>
-                    <!-- <p class="md-caption flex editable" contenteditable="true" ng-model="testCard.assigned_to"></p> -->
-                    <div class="flex autocomplete">
-                      <md-contact-chips
-                        ng-model="assigned_to"
-                        md-contacts="contacts"
-                        md-contact-name="name"
-                        md-contact-image="image"
-                        placeholder="To">
-                    </md-contact-chips>
-                    </div>
+                    <p class="md-caption flex editable" contenteditable="true" ng-model="vm.testCard.assigned_to"></p>
                   </div>
                   <div class="layout layout-row layout-fill">
                     <p class="md-caption flex-25">deadline:</p>
-                    <p class="md-caption flex editable" contenteditable="true" ng-model="testCard.deadline"></p>
+                    <p class="md-caption flex editable" contenteditable="true" ng-model="vm.testCard.deadline"></p>
                   </div>
                   <div class="layout layout-row layout-fill">
                     <p class="md-caption flex-25">duration:</p>
-                    <p class="md-caption flex editable" contenteditable="true" ng-model="testCard.duration"></p>
+                    <p class="md-caption flex editable" contenteditable="true" ng-model="vm.testCard.duration"></p>
                   </div>
                 </div>
-              </md-list-item>
-        </md-list>
+        </div>
 
         <div style="height:48px;">
         <div class="layout layout-row" ng-show="showOptions">
-          <md-button ng-click="testCard.expanded = !testCard.expanded"  class="md-icon-button" aria-label="Settings" ng-if="!testCard.expanded">
+          <md-button ng-click="vm.testCard.expanded = !vm.testCard.expanded"  class="md-icon-button" aria-label="Settings" ng-if="!vm.testCard.expanded">
             <md-icon md-svg-icon="navigation:ic_expand_more_24px" class=""></md-icon>
           </md-button>
-          <md-button ng-click="testCard.expanded = !testCard.expanded" class="md-icon-button" aria-label="Settings" ng-if="testCard.expanded">
+          <md-button ng-click="vm.testCard.expanded = !vm.testCard.expanded" class="md-icon-button" aria-label="Settings" ng-if="vm.testCard.expanded">
             <md-icon md-svg-icon="navigation:ic_expand_less_24px" class=""></md-icon>
           </md-button>
-          <md-button ng-click="removeTestCard(testCard._id)" class="md-icon-button" aria-label="Settings">
+          <md-button ng-click="removeTestCard(vm.testCard._id)" class="md-icon-button" aria-label="Settings">
             <md-icon md-svg-icon="content:ic_clear_24px" class=""></md-icon>
           </md-button>
         </div>
@@ -55,6 +44,6 @@
       next="build">
       </tc-test-card>
 
-      <tc-learn-card test-card="vm.testCard"></tc-learn-card>
+      <tc-learn-card test-card="vm.testCard" learning="vm.learning"></tc-learn-card>
 
     </div>

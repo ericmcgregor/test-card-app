@@ -8,12 +8,12 @@ angular.module('baseappApp')
     replace: true,
     scope:{
       testCard:"=",
+      learning:"="
     },
     bindToController:true,
     controllerAs:'vm',
     controller:function($scope) {
-      this.learning = $meteor.object(Learnings, {'testCardId':this.testCard._id});
-
+      // this.learning = $meteor.object(Learnings, {'testCardId':this.testCard._id});
 
     },
     link: function(scope, elem, attrs, ctrl) {

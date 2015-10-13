@@ -7,7 +7,6 @@ angular.module('baseappApp')
     templateUrl: 'client/components/tcCanvas/tc-canvas.view.ng.html',
     replace: true,
     scope:{
-      projectId:"@",
       project:"="
     },
     bindToController:true,
@@ -24,14 +23,13 @@ angular.module('baseappApp')
 
     },
     link: function(scope, elem, attrs) {
-
+      scope.expanded = false;
+      scope.scale = false;
+      
       scope.createHypothesis = function() {
         console.log(scope.vm.projectId)
         $meteor.call('createHypothesis', scope.vm.project._id, 'new hypothesis');
       }
-
-      scope.expanded = false;
-      scope.scale = false;
 
       scope.toggleScale = function(){
         scope.scale = !scope.scale;

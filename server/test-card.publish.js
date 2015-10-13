@@ -30,10 +30,3 @@ TestCard.before.update(function(userId, testCard, fieldNames, modifier, options)
     }
   }
 });
-TestCard.after.update(function(userId, testCard, fieldNames, modifier, options){
-  if(modifier.$unset) {
-    modifier.$pull = {
-      assigned_to:null
-    }
-  }
-});

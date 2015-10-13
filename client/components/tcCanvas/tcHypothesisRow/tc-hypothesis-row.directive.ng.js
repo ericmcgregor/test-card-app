@@ -19,7 +19,7 @@ angular.module('baseappApp')
       });
     },
     link: function(scope, elem, attrs) {
-      // console.log(scope.vm.testCards)
+
       scope.addTestCard = function(id) {
         $meteor.call('createTestCard', id);
       }
