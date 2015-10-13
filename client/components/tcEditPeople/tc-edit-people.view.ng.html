@@ -1,0 +1,17 @@
+<div layout="column" layout-fill>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2>
+            <span>Select a Person</span>
+          </h2>
+        </div>
+    </md-toolbar>
+    <md-list>
+    <md-list-item ng-click="selectPerson(person)" class="md-1-line contact-item selected" ng-repeat="person in vm.people">
+      <img ng-src="{{person.image}}" class="md-avatar" alt="{{person.name}}" />
+      <div class="md-list-item-text compact">
+        <p>{{person.name}}</p>
+      </div>
+    </md-list-item>
+    </md-list>
+</div>

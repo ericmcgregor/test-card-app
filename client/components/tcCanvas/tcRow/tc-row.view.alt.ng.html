@@ -5,12 +5,17 @@
 
         <div class="flex layout layout-column">
                 <!-- <img src="{{avatar}}" class="md-avatar" alt="{{testCard.name}}" /> -->
-                <h3 class="editable" contenteditable="true" ng-model="vm.testCard.name"></h3>
+                <h3 style="margin:0;">Test: <span  class="editable" contenteditable="true" ng-model="vm.testCard.name"></span></h3>
+                <div class="layout layout-row layout-fill">
+                  <!-- <p class="md-caption flex editable" contenteditable="true" ng-model="vm.testCard.assigned_to"></p> -->
+                    <md-list-item ng-click="editPeople()" style="padding:0;" class="md-1-line contact-item selected">
+                      <img ng-src="{{vm.testCard.assigned_to.image}}" class="md-avatar" alt="{{vm.testCard.assigned_to.name}}" />
+                      <div class="md-list-item-text compact">
+                        <p>{{vm.testCard.assigned_to.name}}</p>
+                      </div>
+                    </md-list-item>
+                </div>
                 <div class="layout layout-column flex" ng-if="vm.testCard.expanded">
-                  <div class="layout layout-row layout-fill">
-                    <p class="md-caption flex-25">assigned to:</p>
-                    <p class="md-caption flex editable" contenteditable="true" ng-model="vm.testCard.assigned_to"></p>
-                  </div>
                   <div class="layout layout-row layout-fill">
                     <p class="md-caption flex-25">deadline:</p>
                     <p class="md-caption flex editable" contenteditable="true" ng-model="vm.testCard.deadline"></p>

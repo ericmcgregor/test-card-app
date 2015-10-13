@@ -19,6 +19,7 @@ angular.module('baseappApp')
   })
 
 
+
   .state('projects.detail.hypothesis', {
     url: '/hypothesis/:hypothesiId',
     views:{
@@ -46,7 +47,20 @@ angular.module('baseappApp')
 
 
 
-
+  .state('projects.detail.editPeople', {
+    url: '/edit/people',
+    params:{
+      testCard:undefined,
+    },
+    views:{
+      "sidenav-right@":{
+        template: function(params){
+          return '<tc-edit-people test-card="'+params.testCard+'"></tc-edit-people>';
+        },
+        controller: 'ProjectEditCtrl'
+      }
+    }
+  })
 
   .state('projects.detail.testcard', {
     url: '/testcard/:testCardId',

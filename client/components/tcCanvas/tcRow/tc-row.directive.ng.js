@@ -14,6 +14,7 @@ angular.module('baseappApp')
     controllerAs:'vm',
     controller:function($scope){
       this.learning = $meteor.object(Learnings, {testCardId:this.testCard._id});
+      this.contacts = $meteor.collection(People);
     },
     link: function(scope, elem, attrs) {
 
@@ -22,6 +23,9 @@ angular.module('baseappApp')
         $meteor.collection(TestCard).remove(scope.vm.testCard._id);
       }
 
+      scope.editPeople = function(){
+        $state.go('projects.detail.editPeople', {testCard:scope.vm.testCard});
+      }
 
 
     }

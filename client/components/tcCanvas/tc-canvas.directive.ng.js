@@ -20,12 +20,13 @@ angular.module('baseappApp')
           $meteor.subscribe('hypothesis');
           $meteor.subscribe('testCard');
           $meteor.subscribe('learnings');
+          $meteor.subscribe('people');
 
     },
     link: function(scope, elem, attrs) {
       scope.expanded = false;
       scope.scale = false;
-      
+
       scope.createHypothesis = function() {
         console.log(scope.vm.projectId)
         $meteor.call('createHypothesis', scope.vm.project._id, 'new hypothesis');
