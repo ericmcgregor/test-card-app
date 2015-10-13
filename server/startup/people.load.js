@@ -2,15 +2,15 @@ Meteor.startup(function() {
   if(People.find().count() === 0) {
     var people = [
       {
-        'name': 'person 1',
+        'name': faker.name.firstName()+' '+faker.name.lastName(),
         'image':faker.image.avatar()
       },
       {
-        'name': 'person 2',
+        'name': faker.name.firstName()+' '+faker.name.lastName(),
         'image':faker.image.avatar()
       },
       {
-        'name': 'person 3',
+        'name': faker.name.firstName()+' '+faker.name.lastName(),
         'image':faker.image.avatar()
       }
     ];

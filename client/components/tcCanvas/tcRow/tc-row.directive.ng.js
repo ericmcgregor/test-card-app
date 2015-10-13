@@ -14,7 +14,6 @@ angular.module('baseappApp')
     controllerAs:'vm',
     controller:function($scope){
       this.learning = $meteor.object(Learnings, {testCardId:this.testCard._id});
-      this.contacts = $meteor.collection(People);
     },
     link: function(scope, elem, attrs) {
 

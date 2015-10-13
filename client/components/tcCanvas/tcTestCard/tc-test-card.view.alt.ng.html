@@ -14,9 +14,9 @@
             <p class="md-body-1 editable" contenteditable="true" ng-model="vm.testCard.criteria"></p>
             <!-- <md-divider ></md-divider> -->
           </div>
-          <div class="result-container layout layout-row layout-fill layout-align-center-center" ng-if="vm.testCard.state !== 'learning'">
+          <div class="result-container layout layout-row layout-fill layout-align-center-center" style="height:48px;">
             <!-- <p class="md-caption flex-25">state:</p> -->
-            <div class="flex layout layout-row layout-align-center-center">
+            <div class="flex layout layout-row layout-align-center-center"  ng-if="vm.testCard.state !== 'learning'">
               <md-button aria-label="test"
               ng-click="vm.testCard.state='backlog'"
               ng-class="{'md-raised md-accent md-hue-3 active':vm.testCard.state=='backlog'}"

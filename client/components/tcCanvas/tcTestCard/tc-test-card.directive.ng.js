@@ -20,27 +20,6 @@ angular.module('baseappApp')
     },
     link: function(scope, elem, attrs, ctrl) {
 
-      // scope.next = function(card){
-      //   card.state = scope.vm.next;
-      // }
-
-      // scope.editTestCard = function(testCardId, state, next, prev) {
-      //   $state.go('projects.detail.testcard', {
-      //     testCardId:testCardId,
-      //     state:state,
-      //     next:next,
-      //     prev:prev
-      //   })
-      // }
-      // scope.prev = function(card){
-      //   card.state = scope.vm.prev;
-      // }
-      //
-      // scope.remove = function(card) {
-      //   $meteor.collection(TestCard).remove(card);
-      // }
-
-
     }
   };
 })
