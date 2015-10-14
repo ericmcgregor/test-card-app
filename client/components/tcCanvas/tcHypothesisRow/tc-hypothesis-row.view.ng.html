@@ -6,9 +6,26 @@
     <md-toolbar class="md-primary md-hue-1">
       <div class="md-toolbar-tools">
         <h2 class="md-headline editable flex" contenteditable="true" ng-model="vm.hypothesi.name"></h2>
-        <md-button ng-click="removeHypothesis()" class="md-button" aria-label="">
-          <md-icon md-svg-icon="content:ic_clear_24px" md-menu-align-target></md-icon>
-        </md-button>
+        <md-menu md-position-mode="target-right target">
+              <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                <md-icon md-menu-origin md-svg-icon="navigation:ic_more_vert_24px"></md-icon>
+              </md-button>
+              <md-menu-content width="4">
+                <md-menu-item>
+                  <md-button ng-click="addTestCard(vm.hypothesi._id)" class="md-button" aria-label="">
+                    <md-icon md-svg-icon="image:ic_add_to_photos_24px" class=""></md-icon>
+                    Add Test Card
+                  </md-button>
+                </md-menu-item>
+                <md-menu-divider></md-menu-divider>
+                <md-menu-item>
+                  <md-button ng-click="removeProject()" class="" aria-label="" label="">
+                    <md-icon md-svg-icon="content:ic_clear_24px" md-menu-align-target></md-icon>
+                    Delete Hypothesis
+                  </md-button>
+                </md-menu-item>
+              </md-menu-content>
+            </md-menu>
       </div>
     </md-toolbar>
   </div>
@@ -19,12 +36,12 @@
     <tc-row ng-repeat="testCard in vm.testCards track by testCard._id" test-card="testCard" hypothesi="vm.hypothesi"></tc-row>
 
 
-    <div class="layout layout-row flex layout-align-start-center">
+    <!-- <div class="layout layout-row flex layout-align-start-center">
       <md-button ng-click="addTestCard(vm.hypothesi._id)" class="md-button" aria-label="">
-        <!-- <md-icon md-svg-icon="navigation:ic_expand_more_24px" class=""></md-icon> -->
+        <md-icon md-svg-icon="navigation:ic_expand_more_24px" class=""></md-icon>
         Add Test Card
       </md-button>
-    </div>
+    </div> -->
 
   </test-container>
 

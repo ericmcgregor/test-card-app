@@ -7,17 +7,18 @@
     <span class="flex"></span>
     <!-- ng-class="{'raised md-accent md-hue-2':expanded===false}"  -->
 
-    <md-menu md-position-mode="target-right target">
-          <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
-            <md-icon md-menu-origin md-svg-icon="navigation:ic_more_vert_24px"></md-icon>
+    <md-menu md-position-mode="target-right target" ng-mouseenter="$mdOpenMenu($event)">
+          <md-button aria-label="Open phone interactions menu" class="md-icon-button">
+            <md-icon md-menu-origin md-svg-icon="navigation:ic_apps_24px"></md-icon>
           </md-button>
-          <md-menu-content width="4">
+          <md-menu-content width="4" >
             <md-menu-item>
               <md-button ng-click="createHypothesis()" class="" aria-label="Add Hypothesis" label="">
                 <md-icon md-svg-icon="av:ic_queue_24px" class=""></md-icon>
                 Add Hypothesis
               </md-button>
             </md-menu-item>
+            <md-menu-divider></md-menu-divider>
             <md-menu-item>
               <md-button ng-click="expandAll(false)" class="" aria-label="Add Hypothesis" label="">
                 <md-icon md-svg-icon="navigation:ic_fullscreen_exit_24px" class=""></md-icon>
