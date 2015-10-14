@@ -1,7 +1,7 @@
 'use strict';
 
 Meteor.methods({
-  createProject: function(name) {
+  createProject: function(name='new project') {
 
     let projectId = Projects.insert({name:name});
 

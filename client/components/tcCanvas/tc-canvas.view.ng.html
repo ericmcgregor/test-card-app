@@ -3,10 +3,51 @@
 
   <md-toolbar class="md-theme-indigo">
     <div  class="md-toolbar-tools">
-    <h1>{{vm.project.name}}</h1>
+    <h1 class="editable" contenteditable="true" ng-model="vm.project.name">{{vm.project.name}}</h1>
     <span class="flex"></span>
     <!-- ng-class="{'raised md-accent md-hue-2':expanded===false}"  -->
-    <md-button ng-click="createHypothesis()" class="" aria-label="Add Hypothesis" label="Add Hypothesis">
+
+    <md-menu md-position-mode="target-right target">
+          <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+            <md-icon md-menu-origin md-svg-icon="navigation:ic_more_vert_24px"></md-icon>
+          </md-button>
+          <md-menu-content width="4">
+            <md-menu-item>
+              <md-button ng-click="createHypothesis()" class="" aria-label="Add Hypothesis" label="">
+                <md-icon md-svg-icon="av:ic_queue_24px" class=""></md-icon>
+                Add Hypothesis
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-click="expandAll(false)" class="" aria-label="Add Hypothesis" label="">
+                <md-icon md-svg-icon="navigation:ic_fullscreen_exit_24px" class=""></md-icon>
+                Collapse All
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-click="expandAll(true)" class="" aria-label="Settings">
+                <md-icon md-svg-icon="navigation:ic_fullscreen_24px" class=""></md-icon>
+                Expand All
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-click="toggleScale()" class="" aria-label="Settings">
+                <md-icon md-svg-icon="action:ic_tab_unselected_24px" class=""></md-icon>
+                Toggle Scale
+              </md-button>
+            </md-menu-item>
+            <md-menu-divider></md-menu-divider>
+            <md-menu-item>
+              <md-button ng-click="removeProject()" class="" aria-label="" label="">
+                <md-icon md-svg-icon="action:ic_delete_24px" class=""></md-icon>
+                Delete Project
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
+
+
+    <!-- <md-button ng-click="createHypothesis()" class="" aria-label="Add Hypothesis" label="Add Hypothesis">
       <md-icon md-svg-icon="av:ic_queue_24px" class=""></md-icon>
       Add Hypothesis
     </md-button>
@@ -19,6 +60,9 @@
     <md-button ng-click="toggleScale()" class="md-icon-button" aria-label="Settings">
       <md-icon md-svg-icon="action:ic_tab_unselected_24px" class=""></md-icon>
     </md-button>
+    <md-button ng-click="removeProject()" class="" aria-label="" label="">
+      <md-icon md-svg-icon="action:ic_delete_24px" class=""></md-icon>
+    </md-button> -->
     </div>
   </md-toolbar>
 

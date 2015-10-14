@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('baseappApp')
-.directive('tcCanvas', function($meteor) {
+.directive('tcCanvas', function($meteor, $state) {
   return {
     restrict: 'EA',
     templateUrl: 'client/components/tcCanvas/tc-canvas.view.ng.html',
@@ -26,7 +26,10 @@ angular.module('baseappApp')
     link: function(scope, elem, attrs) {
       scope.expanded = false;
       scope.scale = false;
-
+      scope.removeProject = function(){
+        $meteor.collection(Projects).remove(scope.vm.project);
+        $state.go('^');
+      }
       scope.createHypothesis = function() {
         console.log(scope.vm.projectId)
         $meteor.call('createHypothesis', scope.vm.project._id, 'new hypothesis');

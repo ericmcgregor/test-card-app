@@ -15,7 +15,9 @@ angular.module('baseappApp')
     },
     controllerAs:'vm',
     link: function(scope, elem, attrs) {
-      
+        scope.addProject = function(){
+          $meteor.call('createProject')
+        }
     }
   };
 });
